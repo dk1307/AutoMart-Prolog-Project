@@ -1,0 +1,63 @@
+domains
+	
+predicates
+	male(symbol)
+	female(symbol)
+	parent(symbol,symbol)
+	couple(symbol,symbol)
+	father(symbol,symbol)
+	mother(symbol,symbol)
+	sibling(symbol,symbol)
+	grandfather(symbol,symbol)
+	grandmother(symbol,symbol)
+	brother(symbol,symbol)
+	sister(symbol,symbol)
+	uncle(symbol,symbol)
+	aunt(symbol,symbol)
+
+	
+clauses
+	male(premjibhai).
+	male(dhirubhai).
+	male(valjibhai).
+	male(kirtibhai).
+	male(hardik).
+	male(darshak).
+	male(deep).
+	female(nathiben).
+	female(ramaben).
+	female(vanitaben).
+	female(bhavnaben).
+	female(bhavu).
+	female(hasti).
+	parent(premjibhai,dhirubhai).
+	parent(premjibhai,valjibhai).
+	parent(premjibhai,kirtibhai).
+	parent(nathiben,dhirubhai).
+	parent(nathiben,valjibhai).
+	parent(nathiben,kirtibhai).
+	parent(dhirubhai,hardik).
+	parent(dhirubhai,bhavu).
+	parent(ramaben,hardik).
+	parent(ramben,bhavu).
+	parent(valjibhai,darshak).
+	parent(vanitaben,darshak).
+	parent(kirtibhai,deep).
+	parent(kirtibhai,hasti).
+	parent(bhavnaben,deep).
+	parent(bhavnaben,hasti).
+	couple(premjibhai,nathiben).
+	couple(dhirubhai,ramaben).
+	couple(valjibhai,vanitaben).
+	couple(kirtibhai,bhavnaben).
+	
+	father(X,Y):-parent(X,Y),male(X).
+	mother(X,Y):-parent(X,Y),female(X).
+	sibling(X,Y):-father(Z,Y),father(Z,X),not(X=Y).
+	grandfather(X,Y):-father(Z,Y),father(X,Z).
+	grandmother(X,Y):-father(Z,Y),mother(X,Z).
+	brother(X,Y):-sibling(X,Y),male(X).
+	sister(X,Y):-sibling(X,Y),female(X).
+	uncle(X,Y):-father(Z,Y),sibling(X,Z),male(X).
+	aunt(X,Y):-father(Z,Y),sibling(C,Z),couple(C,X).
+	

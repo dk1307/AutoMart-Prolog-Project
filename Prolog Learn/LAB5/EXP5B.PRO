@@ -1,0 +1,25 @@
+domains
+
+predicates
+	start
+	da(real,real)
+	gross(real,real,real)
+clauses
+	start:-
+	write("Enter employee name: "), readln(N),
+	write("Enter department: "), readln(D),
+	write("Enter age: "), readint(A),
+	write("Enter basic salary: "), readreal(S),
+	write("Enter HRA: "), readreal(H),
+	write("----PAYSLIP----"), nl,
+	write("Employee name is: "), write(N), nl,
+	write("Department: "), write(D), nl,
+	write("Age: "), write(A), nl,
+	write("BA: "), write(S), nl,
+	write("DA: "), da(S,DA), write(DA), nl,
+	write("Gross salary: "), gross(S,H,G), write(G), nl.
+	da(S,DA):-
+	DA=0.15*S.
+	gross(S,H,G):-
+	da(S,DA),
+	G=S+H+DA.
