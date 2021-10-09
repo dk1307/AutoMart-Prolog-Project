@@ -16,7 +16,7 @@
 <li>Dynamic database(Basic Implementation)</li>
 </ul>
 <hr>
-<h3>learn Basics: </h3>
+  <h3>learn Basics: <a href="../Prolog Learn">Prolog</a> </h3>
 <hr>
 </body
 </html>
